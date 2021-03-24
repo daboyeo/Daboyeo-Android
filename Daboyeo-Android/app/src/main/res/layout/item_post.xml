@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/post_profile_imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/post_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="닉네임"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/post_profile_imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/post_date_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020.03.17"
+        android:textSize="16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/post_location_imageView"
+        android:layout_width="12dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/icon_location"
+        app:layout_constraintLeft_toRightOf="@id/post_profile_imageView"
+        app:layout_constraintTop_toBottomOf="@id/post_name_textView" />
+
+    <TextView
+        android:id="@+id/post_location_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="익산 모현동"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/post_location_imageView"
+        app:layout_constraintTop_toBottomOf="@id/post_name_textView" />
+
+    <TextView
+        android:id="@+id/post_content_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="2akdakfl.sjdkfmwdljaifdjflalsdkfjiwlk.amdsfja;lij23lkjlalkdjafiojwl3kj2k"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/post_image_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/post_content_textView" />
+
+    <Button
+        android:id="@+id/post_like_button"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
+        android:background="@drawable/icon_like"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_image_viewPager" />
+
+    <Button
+        android:id="@+id/post_comment_button"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/icon_comment"
+        app:layout_constraintLeft_toRightOf="@id/post_like_button"
+        app:layout_constraintTop_toBottomOf="@id/post_image_viewPager" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
