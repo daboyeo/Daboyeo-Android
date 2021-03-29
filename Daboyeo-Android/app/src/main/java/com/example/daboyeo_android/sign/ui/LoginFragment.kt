@@ -18,6 +18,7 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
-        return inflater.inflate(R.layout.fragment_login, container, false)
+
+        return binding.root
     }
 }
