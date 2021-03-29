@@ -5,13 +5,15 @@
     <string name="login_comment3">공유해보세요!</string>
     <string name="google_login">Sign in with Google</string>
     <string name="go_main">회원가입 없이 이용하기</string>
-    <string name="home">home</string>
-    <string name="search">search</string>
-    <string name="writing">writing</string>
-    <string name="profile">profile</string>
+    <string name="home">홈</string>
+    <string name="search">검색</string>
+    <string name="writing">글쓰기</string>
+    <string name="profile">프로필</string>
     <string name="writing_comment">님, 어떤 사건 사고를 목격하셨나요?</string>
     <string name="search_comment">찾고싶은 내용을 검색해보세요</string>
     <string name="noPost">게시물이 없습니다.</string>
     <string name="modify">수정하기</string>
+    <string name="detail_comment">댓글을 달아보세요.</string>
+    <string name="post">작성</string>
 
 </resources>
