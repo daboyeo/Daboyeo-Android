@@ -7,14 +7,15 @@
 
         <variable
             name="writing"
-            type="com.example.daboyeo_android.writing.WritingActivity" />
+            type="com.example.daboyeo_android.writing.ui.WritingActivity" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/background"
-        tools:context=".writing.WritingActivity">
+        android:orientation="vertical"
+        tools:context=".writing.ui.WritingActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/writing_constraintLayout"
@@ -50,5 +51,39 @@
                 app:layout_constraintBottom_toBottomOf="@id/writing_content_textView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/writing_image_imageButton"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/icon_image" />
+
+            <ImageButton
+                android:id="@+id/writing_location_button"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/icon_writing_location" />
+
+            <Button
+                android:id="@+id/writing_writing_button"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="150dp"
+                android:background="@drawable/writing_full_button"
+                android:text="@string/writing"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </layout>
