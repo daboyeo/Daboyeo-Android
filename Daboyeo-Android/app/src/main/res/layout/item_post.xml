@@ -75,12 +75,14 @@
         android:layout_height="23dp"
         android:background="@drawable/icon_like"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/post_image_viewPager" />
 
     <Button
         android:id="@+id/post_comment_button"
         android:layout_width="25dp"
         android:layout_height="23dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/icon_comment"
         app:layout_constraintLeft_toRightOf="@id/post_like_button"
