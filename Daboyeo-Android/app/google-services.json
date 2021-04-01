@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "211706035777",
+    "project_id": "daboyeo-android",
+    "storage_bucket": "daboyeo-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211706035777:android:ec78584090038d6e82d0c0",
+        "android_client_info": {
+          "package_name": "com.example.daboyeo_android.home"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211706035777-t5nq8qlmga4dmj51nh1c4vakmrqbvp9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daboyeo_android.home",
+            "certificate_hash": "003b28afcda6ee5392488e8bbd8e5a09d805e20c"
+          }
+        },
+        {
+          "client_id": "211706035777-00pb080amp3sm6fo0lpdvqutdj99m6ri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1dRdFBDXgfYj4fxFOtsPrEy1fWIQuC9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211706035777-00pb080amp3sm6fo0lpdvqutdj99m6ri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
