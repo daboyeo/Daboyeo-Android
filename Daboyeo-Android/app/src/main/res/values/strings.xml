@@ -15,5 +15,6 @@
     <string name="modify">수정하기</string>
     <string name="detail_comment">댓글을 달아보세요.</string>
     <string name="post">작성</string>
-
+    <string name="set_location">위치 설정</string>
+    <string name="over_image">10장까지만 선택해주세요.</string>
 </resources>
