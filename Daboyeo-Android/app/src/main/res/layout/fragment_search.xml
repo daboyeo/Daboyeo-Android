@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="search"
             type="com.example.daboyeo_android.home.ui.SearchFragment" />
@@ -29,10 +30,10 @@
             <EditText
                 android:id="@+id/search_content_editText"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="55dp"
                 android:layout_marginBottom="10dp" />
 
             <Button
@@ -40,7 +41,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/icon_search"
                 android:backgroundTint="@color/mainBlue" />
