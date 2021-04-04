@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Daboyeo-Android</string>
+    <string name="app_name">다보여</string>
     <string name="login_comment1">당신이 목격한</string>
     <string name="login_comment2">사건 사고를</string>
     <string name="login_comment3">공유해보세요!</string>
@@ -17,4 +17,6 @@
     <string name="post">작성</string>
     <string name="set_location">위치 설정</string>
     <string name="over_image">10장까지만 선택해주세요.</string>
+    <string name="my_profile">내프로</string>
+    <string name="back">뒤로</string>
 </resources>
