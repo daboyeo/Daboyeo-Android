@@ -9,8 +9,8 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
-    dataBinding {
-        enabled true
+    buildFeatures{
+        dataBinding = true
     }
 
     defaultConfig {
@@ -39,6 +39,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+
 }
 
 dependencies {
