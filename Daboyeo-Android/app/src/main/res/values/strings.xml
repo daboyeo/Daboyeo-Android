@@ -19,4 +19,5 @@
     <string name="over_image">10장까지만 선택해주세요.</string>
     <string name="my_profile">내프로</string>
     <string name="back">뒤로</string>
+    <string name="select_image">1 ~ 10장을 선택해주세요.</string>
 </resources>
