@@ -8,7 +8,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivityLocationBinding
@@ -16,26 +16,24 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
-
+import dagger.hilt.android.AndroidEntryPoint
 
 class LocationActivity : AppCompatActivity(), OnMapReadyCallback,
-    GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+        GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
     private lateinit var binding: ActivityLocationBinding
     lateinit var mapFragment: SupportMapFragment
     private lateinit var mMap: GoogleMap
-    private var lat = 0
-    private var lon = 0
+    private var lat = 0.00
+    private var lon = 0.00
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_location)
         binding.location = this
 
-        mapFragment =
-            supportFragmentManager.findFragmentById(R.id.location_mapView_fragment) as SupportMapFragment
+        mapFragment = supportFragmentManager.findFragmentById(R.id.location_mapView_fragment) as SupportMapFragment
         mapFragment.getMapAsync(OnMapReadyCallback {
             mMap = it
-            //googleMap.isMyLocationEnabled = true
 
         })
 
@@ -45,15 +43,23 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback,
         mMap = googleMap ?: return
         googleMap.setOnMyLocationButtonClickListener(this)
         googleMap.setOnMyLocationClickListener(this)
+
     }
 
     private fun locationZoom() {
         val manager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        try {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            val location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
-        } catch (e: SecurityException) {
-            e.printStackTrace()
+            if(location != null) {
+                lat = location.latitude
+                lon = location.longitude
+            }
+
+        } else {
+            Toast.makeText(this, "권한을 허용해주세요.",Toast.LENGTH_SHORT).show()
         }
 
     }
