@@ -25,11 +25,13 @@
             <ImageView
                 android:id="@+id/modify_userImg_imageView"
                 android:layout_width="130dp"
+                android:scaleType="fitCenter"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
                 android:background="@drawable/icon_google" />
 
             <ImageButton
+                android:id="@+id/modify_userImg_imageButton"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
