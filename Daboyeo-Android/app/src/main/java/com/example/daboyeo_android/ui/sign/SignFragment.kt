@@ -16,7 +16,7 @@ class SignFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign, container, false)
 
 
         return binding.root

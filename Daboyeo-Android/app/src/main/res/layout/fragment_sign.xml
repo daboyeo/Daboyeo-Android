@@ -6,16 +6,16 @@
     <data>
         <variable
             name="login"
-            type="com.example.daboyeo_android.ui.sign.LoginFragment" />
+            type="com.example.daboyeo_android.ui.sign.SignFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.sign.LoginActivity">
+        tools:context=".ui.sign.SignActivity">
 
         <TextView
-            android:id="@+id/login_comment_textView1"
+            android:id="@+id/sign_comment_textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/login_comment_textView2"
+            android:id="@+id/sign_comment_textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -35,10 +35,10 @@
             android:textColor="@color/mainBlue"
             android:textSize="35sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_comment_textView1" />
+            app:layout_constraintTop_toBottomOf="@id/sign_comment_textView1" />
 
         <TextView
-            android:id="@+id/login_comment_textView3"
+            android:id="@+id/sign_comment_textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -46,10 +46,10 @@
             android:textColor="@color/black"
             android:textSize="35sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_comment_textView2" />
+            app:layout_constraintTop_toBottomOf="@id/sign_comment_textView2" />
 
         <Button
-            android:id="@+id/login_login_button"
+            android:id="@+id/sign_login_button"
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
@@ -64,10 +64,10 @@
             android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_comment_textView3" />
+            app:layout_constraintTop_toBottomOf="@id/sign_comment_textView3" />
 
         <Button
-            android:id="@+id/login_noGoogle_button"
+            android:id="@+id/sign_noGoogle_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -76,7 +76,7 @@
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_login_button" />
+            app:layout_constraintTop_toBottomOf="@id/sign_login_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
