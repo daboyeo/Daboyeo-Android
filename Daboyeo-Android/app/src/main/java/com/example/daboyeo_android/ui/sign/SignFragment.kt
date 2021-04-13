@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.sign.ui
+package com.example.daboyeo_android.ui.sign
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class SignFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
