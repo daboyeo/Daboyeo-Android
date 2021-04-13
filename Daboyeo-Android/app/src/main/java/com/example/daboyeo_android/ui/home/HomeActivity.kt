@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.home.ui
+package com.example.daboyeo_android.ui.home
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivityHomeBinding
-import com.example.daboyeo_android.profile.ui.ProfileFragment
-import com.example.daboyeo_android.writing.ui.WritingFragment
+import com.example.daboyeo_android.ui.profile.ProfileFragment
+import com.example.daboyeo_android.ui.search.SearchFragment
+import com.example.daboyeo_android.ui.writing.WritingFragment
 
 private const val REQUEST_PERMISSIONS = 100
 

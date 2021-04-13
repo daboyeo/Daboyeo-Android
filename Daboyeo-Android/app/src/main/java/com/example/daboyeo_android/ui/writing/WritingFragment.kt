@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.writing.ui
+package com.example.daboyeo_android.ui.writing
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -10,15 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.FragmentWritingBinding
 import java.lang.Exception
 
+private const val REQUEST_LOCATION = 200
+private const val REQUEST_OPEN_GALLERY = 300
+
 class WritingFragment : Fragment() {
     private lateinit var binding : FragmentWritingBinding
-    private val OPEN_IMAGE = 300
-    private val OPEN_LOCATION = 200
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,7 @@ class WritingFragment : Fragment() {
 
         binding.writingLocationButton.setOnClickListener {
             val intent = Intent(context, LocationActivity::class.java)
-            startActivityForResult(intent, OPEN_LOCATION)
+            startActivityForResult(intent, REQUEST_LOCATION)
         }
 
         binding.writingImageButton.setOnClickListener {
@@ -42,29 +42,28 @@ class WritingFragment : Fragment() {
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(
-                Intent.createChooser(intent, "1 ~ 10장을 선택해주세요"), OPEN_IMAGE
+                Intent.createChooser(intent, getString(R.string.select_image)), REQUEST_OPEN_GALLERY
             )
         }
-
     }
 
     override fun startActivityForResult(data: Intent?, requestCode: Int) {
         super.startActivityForResult(data, requestCode)
 
-        if(requestCode == OPEN_IMAGE) {
+        if(requestCode == REQUEST_OPEN_GALLERY) {
             try {
 
             } catch (e: Exception) {
                 println(e.toString())
             }
-        } else if (requestCode == OPEN_LOCATION){
+        } else if (requestCode == REQUEST_LOCATION){
 
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == OPEN_IMAGE && requestCode == RESULT_OK) {
+        if(requestCode == REQUEST_OPEN_GALLERY && requestCode == RESULT_OK) {
             if(data?.clipData != null) {
                 val count = data.clipData!!.itemCount
                 if(count > 11) {
@@ -82,5 +81,4 @@ class WritingFragment : Fragment() {
             }
         }
     }
-
 }

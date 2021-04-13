@@ -1,7 +1,7 @@
-package com.example.daboyeo_android.network
+package com.example.daboyeo_android.http.service
 
-import com.example.daboyeo_android.home.model.ReportData
-import com.example.daboyeo_android.profile.model.MyProfileData
+import com.example.daboyeo_android.entity.home.ReportData
+import com.example.daboyeo_android.entity.profile.MyProfileData
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -52,5 +52,5 @@ interface DaboyeoAPI {
             @Body image_uris: List<String>,
             @Body content: String,
             @Body location: String
-    )
+    ) : Response<String>
 }

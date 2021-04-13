@@ -1,10 +1,10 @@
-package com.example.daboyeo_android.home.ui.adapter
+package com.example.daboyeo_android.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.daboyeo_android.R
-import com.example.daboyeo_android.home.model.ReportData
+import com.example.daboyeo_android.entity.home.ReportData
 
 class ReportsAdapter(private val reports: List<ReportData>): RecyclerView.Adapter<ReportsViewHolder>() {
 

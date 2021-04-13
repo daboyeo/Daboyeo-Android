@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.profile.model
+package com.example.daboyeo_android.entity.profile
 
 import com.google.gson.annotations.SerializedName
 

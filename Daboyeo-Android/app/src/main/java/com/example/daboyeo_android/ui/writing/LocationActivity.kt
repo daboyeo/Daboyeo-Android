@@ -1,25 +1,28 @@
-package com.example.daboyeo_android.writing.ui
+package com.example.daboyeo_android.ui.writing
 
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivityLocationBinding
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 
-class LocationActivity : AppCompatActivity(), OnMapReadyCallback,
-        GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+class LocationActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
     private lateinit var binding: ActivityLocationBinding
     lateinit var mapFragment: SupportMapFragment
     private lateinit var mMap: GoogleMap
@@ -32,17 +35,17 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback,
         binding.location = this
 
         mapFragment = supportFragmentManager.findFragmentById(R.id.location_mapView_fragment) as SupportMapFragment
-        mapFragment.getMapAsync(OnMapReadyCallback {
-            mMap = it
+        mapFragment.getMapAsync(this)
 
-        })
+        locationZoom()
 
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
         mMap = googleMap ?: return
+        mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+
         googleMap.setOnMyLocationButtonClickListener(this)
-        googleMap.setOnMyLocationClickListener(this)
 
     }
 
@@ -58,19 +61,15 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback,
                 lon = location.longitude
             }
 
-        } else {
-            Toast.makeText(this, "권한을 허용해주세요.",Toast.LENGTH_SHORT).show()
+            mMap.isMyLocationEnabled = true
+
         }
 
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show()
-        return false
-    }
+        Log.d("Location Activity", "onMyLocationButtonClick")
 
-    override fun onMyLocationClick(location: Location) {
-        Toast.makeText(this, "Current location:\n$location", Toast.LENGTH_LONG).show()
+        return true
     }
-
 }

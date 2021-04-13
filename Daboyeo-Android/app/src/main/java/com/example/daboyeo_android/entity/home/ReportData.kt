@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.home.model
+package com.example.daboyeo_android.entity.home
 
 import com.google.gson.annotations.SerializedName
 
