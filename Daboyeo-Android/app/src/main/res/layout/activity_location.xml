@@ -7,13 +7,13 @@
 
         <variable
             name="location"
-            type="com.example.daboyeo_android.writing.ui.LocationActivity" />
+            type="com.example.daboyeo_android.ui.writing.LocationActivity" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".writing.ui.LocationActivity">
+        tools:context=".ui.writing.LocationActivity">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/location_mapView_fragment"

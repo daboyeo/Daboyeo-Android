@@ -6,13 +6,13 @@
     <data>
         <variable
             name="login"
-            type="com.example.daboyeo_android.sign.ui.LoginFragment" />
+            type="com.example.daboyeo_android.ui.sign.LoginFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".sign.ui.LoginActivity">
+        tools:context=".ui.sign.LoginActivity">
 
         <TextView
             android:id="@+id/login_comment_textView1"
