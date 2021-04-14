@@ -1,6 +1,6 @@
 package com.example.daboyeo_android.http.interceptor
 
-import com.example.daboyeo_android.http.service.DaboyeoAPI
+import com.example.daboyeo_android.http.service.DaboyeoService
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn(ActivityComponent::class)
 object DaboyeaConnect {
     private var retrofit: Retrofit
-    private var api: DaboyeoAPI
+    private var api: DaboyeoService
     private const val baseURL = ""
     const val s3 = ""
 
@@ -31,7 +31,7 @@ object DaboyeaConnect {
             .client(client)
             .build()
 
-        api = retrofit.create(DaboyeoAPI::class.java)
+        api = retrofit.create(DaboyeoService::class.java)
     }
 
     fun getAPI() = api
