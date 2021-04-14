@@ -1,28 +1,12 @@
 package com.example.daboyeo_android.http.service
 
+import com.example.daboyeo_android.entity.home.DetailReportData
 import com.example.daboyeo_android.entity.home.ReportData
 import com.example.daboyeo_android.entity.profile.MyProfileData
 import retrofit2.Response
 import retrofit2.http.*
 
-interface DaboyeoAPI {
-
-    @POST("/auth")
-    suspend fun signAuth(
-            @Body body: HashMap<String, String>
-    ): Response<String>
-
-    @GET("/user")
-    suspend fun getMyProfile(
-            @Header("Authorization") header: String
-    ): Response<MyProfileData>
-
-    @PUT("/user")
-    suspend fun modifyProfile(
-            @Header("Authorization") header: String,
-            @Body body: HashMap<String, String>
-    ): Response<Unit>
-
+interface TimelineService : DaboyeoService {
     @GET("/report")
     suspend fun getTimeLine(
             @Header("Authorization") header: String
@@ -31,7 +15,7 @@ interface DaboyeoAPI {
     @GET("/report/{id}")
     suspend fun detailReport(
             @Header("Authorization") header: String
-    )
+    ): Response<DetailReportData>
 
     @POST("/comment")
     suspend fun comment(
@@ -44,13 +28,4 @@ interface DaboyeoAPI {
             @Header("Authorization") header: String,
             @Body report_id: String
     ): Response<Boolean>
-
-    @POST("/report")
-    suspend fun writing(
-            @Header("Authorization") header: String,
-            @Body tags: List<String>,
-            @Body image_uris: List<String>,
-            @Body content: String,
-            @Body location: String
-    ) : Response<String>
 }
