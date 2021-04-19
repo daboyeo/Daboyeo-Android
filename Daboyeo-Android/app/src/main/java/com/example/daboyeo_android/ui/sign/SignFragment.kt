@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.daboyeo_android.R
-import com.example.daboyeo_android.databinding.FragmentLoginBinding
+import com.example.daboyeo_android.databinding.FragmentSignBinding
 
 class SignFragment : Fragment() {
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentSignBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
