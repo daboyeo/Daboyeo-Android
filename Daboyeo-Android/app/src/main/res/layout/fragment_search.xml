@@ -7,7 +7,7 @@
 
         <variable
             name="search"
-            type="com.example.daboyeo_android.ui.search.SearchFragment" />
+            type="com.example.daboyeo_android.entity.home.ReportListData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
