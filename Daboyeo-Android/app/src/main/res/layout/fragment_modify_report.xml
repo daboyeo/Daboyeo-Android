@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="report"
+            type="com.example.daboyeo_android.entity.home.DetailReportData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.report.DetailPostFragment">
+
+        <ImageView
+            android:id="@+id/modifyReport_myProfile_imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/modifyReport_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="닉네임"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/modifyReport_myProfile_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/modifyReport_date_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:text="2020.03.17"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/modifyReport_location_imageView"
+            android:layout_width="12dp"
+            android:layout_height="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/icon_location"
+            app:layout_constraintLeft_toRightOf="@id/modifyReport_myProfile_imageView"
+            app:layout_constraintTop_toBottomOf="@id/modifyReport_name_textView" />
+
+        <TextView
+            android:id="@+id/modifyReport_location_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="익산 모현동"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/modifyReport_location_imageView"
+            app:layout_constraintTop_toBottomOf="@id/modifyReport_name_textView" />
+
+        <TextView
+            android:id="@+id/modifyReport_content_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="20dp"
+            android:text="test"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/modifyReport_image_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/modifyReport_content_textView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/modifyReport_modify_button"
+            app:layout_constraintTop_toBottomOf="@id/modifyReport_image_viewPager"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/modify"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/full_color_button"
+            android:textColor="@color/white"
+            android:layout_marginRight="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
