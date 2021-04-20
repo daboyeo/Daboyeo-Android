@@ -6,7 +6,7 @@
 
         <variable
             name="modifyProfile"
-            type="com.example.daboyeo_android.ui.profile.ModifyProfileFragment" />
+            type="com.example.daboyeo_android.entity.profile.MyProfileData" />
     </data>
 
     <LinearLayout
