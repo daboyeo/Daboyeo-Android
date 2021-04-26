@@ -18,7 +18,14 @@ class SignFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign, container, false)
 
-
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        binding.signLoginButton.setOnClickListener {
+
+        }
     }
 }
