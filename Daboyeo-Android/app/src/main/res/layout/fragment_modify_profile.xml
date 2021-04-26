@@ -6,7 +6,7 @@
 
         <variable
             name="modifyProfile"
-            type="com.example.daboyeo_android.entity.profile.MyProfileData" />
+            type="com.example.daboyeo_android.entity.profile.ProfileData" />
     </data>
 
     <LinearLayout
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="test"
+            android:text="@{modifyProfile.name}"
             android:textColor="@color/black"
             android:textSize="23sp" />
 
