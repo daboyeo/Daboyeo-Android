@@ -46,7 +46,7 @@
             android:id="@+id/sign_login_button"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="120dp"
             android:background="@drawable/login_round_button"
             android:drawableLeft="@drawable/icon_google"
             android:paddingLeft="30dp"
@@ -60,17 +60,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_comment_textView3" />
 
-        <Button
-            android:id="@+id/sign_noGoogle_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/go_main"
-            android:textColor="@color/gray"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_login_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
