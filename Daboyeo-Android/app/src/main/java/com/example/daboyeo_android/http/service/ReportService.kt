@@ -5,7 +5,7 @@ import retrofit2.http.*
 
 interface ReportService {
     @POST("/comment")
-    suspend fun comment(
+    suspend fun addComment(
         @Header("Authorization") header: String,
         @Body body: HashMap<String, String>
     ): Response<Unit>
