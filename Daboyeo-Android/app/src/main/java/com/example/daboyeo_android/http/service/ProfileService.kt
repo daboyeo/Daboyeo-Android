@@ -1,10 +1,11 @@
 package com.example.daboyeo_android.http.service
 
+import com.example.daboyeo_android.entity.home.ReportListData
 import com.example.daboyeo_android.entity.profile.ProfileData
 import retrofit2.Response
 import retrofit2.http.*
 
-interface ProfileService : DaboyeoService{
+interface ProfileService {
 
     @GET("/user")
     suspend fun getMyProfile(
@@ -13,7 +14,6 @@ interface ProfileService : DaboyeoService{
 
     @GET("/user")
     suspend fun getUserProfile(
-        @Header("Authorization") header: String,
         @Query("user") user: String
     ): Response<ProfileData>
 
@@ -23,4 +23,9 @@ interface ProfileService : DaboyeoService{
         @Body body: HashMap<String, String>
     ): Response<Unit>
 
+    @GET("/report")
+    suspend fun getProfileReports(
+            @Header("Authorization") header: String,
+            @Query("user") user: String
+    ) : Response<ReportListData>
 }
