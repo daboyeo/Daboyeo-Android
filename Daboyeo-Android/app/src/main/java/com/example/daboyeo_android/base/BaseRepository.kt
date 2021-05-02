@@ -10,7 +10,7 @@ open class BaseRepository {
         return DaboyeoApplication.pref!!.getToken()
     }
 
-    suspend fun <T: Any> mappingToResult(result: suspend () -> Response<T>): Result<T> {
-        return safeApiCall(call=result)
+    suspend fun <T : Any> mappingToResult(result: suspend () -> Response<T>): Result<T> {
+        return safeApiCall(call = result)
     }
 }
