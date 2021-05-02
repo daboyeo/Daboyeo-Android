@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object DaboyeaConnect {
     private var retrofit: Retrofit
     private var api: DaboyeoService
-    private const val baseURL = ""
+    private const val baseURL = "https://6l8nidp3k7.execute-api.ap-northeast-2.amazonaws.com/dev/"
     const val s3 = ""
 
     init {
