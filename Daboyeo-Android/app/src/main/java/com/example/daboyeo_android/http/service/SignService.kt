@@ -5,7 +5,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface SignService {
-    @POST("/auth")
+    @POST("user/auth")
     suspend fun signAuth(
         @Body body: HashMap<String, String>
     ): Response<String>
