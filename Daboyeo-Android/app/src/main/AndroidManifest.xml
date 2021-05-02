@@ -18,27 +18,27 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB5GrktT2usqOme0pngjCtSQ1Z0RaVET0s" />
+            android:value="@string/google_map_key" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".writing.ui.LocationActivity">
+        <activity android:name=".ui.writing.LocationActivity">
 
         </activity>
 
         <activity
-            android:name=".sign.ui.LoginActivity"
+            android:name=".ui.sign.SignActivity"
             android:theme="@style/Theme.DaboyeoAndroid.NoActionBar">
-
-        </activity>
-        <activity android:name=".home.ui.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.home.HomeActivity" />
     </application>
 
 </manifest>
