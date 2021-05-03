@@ -3,10 +3,12 @@ package com.example.daboyeo_android.ui.sign
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivitySignBinding
+import com.example.daboyeo_android.ui.home.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -19,7 +21,7 @@ class SignActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignBinding
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 200
-    private val TAG = "Test_Google_Sign"
+    private val TAG = "SignActivity"
     private val viewModel = SignViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,10 @@ class SignActivity : AppCompatActivity() {
 
         binding.signLoginButton.setOnClickListener {
             signIn()
+        }
+
+        binding.signNoSignButton.setOnClickListener {
+            intent()
         }
 
     }
@@ -79,9 +85,24 @@ class SignActivity : AppCompatActivity() {
     private fun updateUI(account: GoogleSignInAccount?) {
         if(account != null) {
             viewModel.signIn(account.idToken.toString())
+
+            viewModel.signLiveData.observe(this, {
+                if(it == 1) {
+                    intent()
+                } else if(it == 0) {
+                    Toast.makeText(this, "구글 계정을 확인해주세요" ,Toast.LENGTH_LONG).show()
+                } else {
+
+                }
+            })
         } else {
 
         }
+    }
+
+    private fun intent() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 
 }
