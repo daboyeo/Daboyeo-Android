@@ -2,13 +2,11 @@ package com.example.daboyeo_android.ui.writing
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
 import android.location.LocationManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
@@ -20,56 +18,76 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 
-class LocationActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
+class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityLocationBinding
-    lateinit var mapFragment: SupportMapFragment
+    private lateinit var mapFragment: SupportMapFragment
     private lateinit var mMap: GoogleMap
-    private var lat = 0.00
-    private var lon = 0.00
+    private var latitude = 0.0
+    private var longitude = 0.0
+    private val TAG = "Location Activity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_location)
-        binding.location = this
 
-        mapFragment = supportFragmentManager.findFragmentById(R.id.location_mapView_fragment) as SupportMapFragment
+        mapFragment =
+            supportFragmentManager.findFragmentById(R.id.location_mapView_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        locationZoom()
+        binding.locationSetButton.setOnClickListener {
+            val intent = Intent()
+            setResult(200, intent)
+            finish()
+        }
 
+        userLocationZoomIn()
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
         mMap = googleMap ?: return
-        mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
 
-        googleMap.setOnMyLocationButtonClickListener(this)
-
+        googleMap.setOnMapClickListener {
+            val mOptions = MarkerOptions()
+            mOptions.title("위치 설정")
+            latitude = it.latitude
+            longitude = it.longitude
+            mOptions.snippet("$latitude, $longitude")
+            mMap.addMarker(mOptions)
+        }
     }
 
-    private fun locationZoom() {
+    private fun userLocationZoomIn() {
         val manager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            val location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+        try {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.w(TAG, "userLocationZoomIn try : true")
 
-            if(location != null) {
-                lat = location.latitude
-                lon = location.longitude
+                val location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                if (location != null) {
+                    latitude = location.latitude
+                    longitude = location.longitude
+                }
+            } else {
+
             }
 
-            mMap.isMyLocationEnabled = true
-
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
-    }
-
-    override fun onMyLocationButtonClick(): Boolean {
-        Log.d("Location Activity", "onMyLocationButtonClick")
-
-        return true
+        var latlng = LatLng(latitude, longitude)
+        //val update = CameraUpdateFactory.newLatLngZoom(latlng, 15F)
+        //mMap.moveCamera(update)
     }
 }
