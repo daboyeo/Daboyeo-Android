@@ -7,23 +7,23 @@ import retrofit2.http.*
 
 interface ProfileService {
 
-    @GET("/user")
+    @GET("user")
     suspend fun getMyProfile(
         @Header("Authorization") header: String
     ): Response<ProfileData>
 
-    @GET("/user")
+    @GET("user")
     suspend fun getUserProfile(
         @Query("user") user: String
     ): Response<ProfileData>
 
-    @PUT("/user")
+    @PUT("user")
     suspend fun modifyProfile(
         @Header("Authorization") header: String,
         @Body body: HashMap<String, String>
     ): Response<Unit>
 
-    @GET("/report")
+    @GET("report")
     suspend fun getProfileReports(
             @Header("Authorization") header: String,
             @Query("user") user: String
