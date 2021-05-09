@@ -6,7 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.entity.home.ReportData
 
-class ReportsAdapter(private val reports: List<ReportData>): RecyclerView.Adapter<ReportsViewHolder>() {
+class ReportsAdapter(): RecyclerView.Adapter<ReportsViewHolder>() {
+    lateinit var reports : List<ReportData>
+
+    fun setList(list: List<ReportData>) {
+        if(::reports.isInitialized) return
+        reports = list
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_report, parent, false)
