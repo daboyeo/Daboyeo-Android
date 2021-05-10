@@ -3,7 +3,9 @@ package com.example.daboyeo_android.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.daboyeo_android.R
+import com.example.daboyeo_android.databinding.ItemReportBinding
 import com.example.daboyeo_android.entity.home.ReportData
 
 class ReportsAdapter(): RecyclerView.Adapter<ReportsViewHolder>() {
@@ -15,8 +17,8 @@ class ReportsAdapter(): RecyclerView.Adapter<ReportsViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_report, parent, false)
-        return ReportsViewHolder(view)
+        val binding = ItemReportBinding.inflate(LayoutInflater.from(parent.context),parent, false)
+        return ReportsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ReportsViewHolder, position: Int) = holder.bind(reports[position])
