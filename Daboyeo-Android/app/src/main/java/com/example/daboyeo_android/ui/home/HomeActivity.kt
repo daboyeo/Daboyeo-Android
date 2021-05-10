@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivityHomeBinding
 import com.example.daboyeo_android.ui.profile.ProfileFragment
+import com.example.daboyeo_android.ui.report.DetailPostFragment
 import com.example.daboyeo_android.ui.search.SearchFragment
 import com.example.daboyeo_android.ui.writing.WritingFragment
 
@@ -29,7 +30,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-        binding.homeAct = this
 
         bottomNavigationItemClick()
         replaceFragment(HomeFragment())
