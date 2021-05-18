@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
         bottomNavigationItemClick()
-        changeView(WritingFragment(),"Writing")
+        replaceFragment(SearchFragment())
         checkPermissions()
     }
 
@@ -78,45 +78,17 @@ class HomeActivity : AppCompatActivity() {
     private fun bottomNavigationItemClick() {
         binding.homeBottomNavigation.setOnNavigationItemReselectedListener {
             when (it.itemId) {
-                R.id.menu_home_main -> changeView(HomeFragment(), "Home")
-                R.id.menu_home_search -> changeView(SearchFragment(), "Search")
-                R.id.menu_home_writing -> changeView(WritingFragment(), "Writing")
-                R.id.menu_home_profile -> changeView(ProfileFragment(), "MyProfile")
+                R.id.menu_home_main -> replaceFragment(HomeFragment())
+                R.id.menu_home_search -> replaceFragment(SearchFragment())
+                R.id.menu_home_writing -> replaceFragment(WritingFragment())
+                R.id.menu_home_profile -> replaceFragment(ProfileFragment())
             }
         }
     }
 
-    fun changeView(fragment: Fragment, toolbar: String) {
-        replaceFragment(fragment)
-        setToolbar(toolbar)
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.home_fragment, fragment)
         fragmentTransaction.commit()
-    }
-
-    private fun setToolbar(fragment: String) {
-        when (fragment) {
-            "Home" -> binding.toolbarTitleTextView.text = getString(R.string.app_name)
-            "Writing" -> {
-                binding.toolbarTitleTextView.text = getString(R.string.writing)
-                binding.toolbarSaveButton.visibility = View.VISIBLE
-                binding.toolbarBackButton.visibility = View.VISIBLE
-            }
-            "MyProfile" -> {
-                binding.toolbarTitleTextView.text = getString(R.string.my_profile)
-                binding.toolbarBackButton.visibility = View.VISIBLE
-                binding.toolbarSettingButton.visibility = View.VISIBLE
-            }
-            "Profile" -> {
-                binding.toolbarTitleTextView.text = getString(R.string.profile)
-                binding.toolbarBackButton.visibility = View.VISIBLE
-            }
-            "Search" -> binding.homeToolbar.visibility = View.GONE
-            "Detail" -> binding.toolbarBackButton.visibility = View.VISIBLE
-
-        }
     }
 }
