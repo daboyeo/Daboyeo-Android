@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    
     <item
-        android:icon="@drawable/icon_back"
-        android:title="뒤로"
-        app:showAsAction="always" />
-
-    <item
-        android:title="@string/writing"
+        android:id="@+id/writing_toolbar_save"
+        android:title="@string/save"
         app:showAsAction="always" />
 </menu>
