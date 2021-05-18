@@ -35,7 +35,7 @@ class DetailPostFragment : Fragment() {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when(position) {
                         1 -> {
-                            (activity as HomeActivity).changeView(ModifyReportFragment(), "Writing")
+                            (activity as HomeActivity).replaceFragment(ModifyReportFragment())
                         }
                         2 -> {
 

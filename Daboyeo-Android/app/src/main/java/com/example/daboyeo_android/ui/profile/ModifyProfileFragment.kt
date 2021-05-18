@@ -40,7 +40,7 @@ class ModifyProfileFragment : Fragment() {
         }
 
         binding.modifyModifyButton.setOnClickListener {
-            (activity as HomeActivity).changeView(ProfileFragment(), "MyProfile")
+            (activity as HomeActivity).replaceFragment(ProfileFragment())
         }
     }
 
