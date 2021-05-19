@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.FragmentHomeBinding
+import com.example.daboyeo_android.ui.home.adapter.ReportsAdapter
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -25,6 +26,14 @@ class HomeFragment : Fragment() {
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.reportsData.observe(viewLifecycleOwner, {
+            binding.homeRecyclerView.setHasFixedSize(true)
+            binding.homeRecyclerView.adapter = ReportsAdapter(it.reports)
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
