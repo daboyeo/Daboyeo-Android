@@ -6,91 +6,110 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
-        android:orientation="vertical"
-        tools:context=".writing.ui.WritingActivity">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/writing_constraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:padding="15dp">
-
-            <ImageView
-                android:id="@+id/writing_profile_imageView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/ic_launcher_background"
-                app:layout_constraintLeft_toLeftOf="@id/writing_constraintLayout"
-                app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
-
-            <EditText
-                android:id="@+id/writing_content_editView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:hint="@string/writing_comment"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/writing_profile_imageView"
-                app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/writing_content_editView">
-
-                <ImageView
-                    android:id="@+id/writing_image_imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center" />
-
-                <TextView
-                    android:id="@+id/writing_images_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/writing_gray_textview"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:visibility="invisible" />
-
-            </FrameLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            tools:context=".writing.ui.WritingActivity">
 
-            <ImageButton
-                android:id="@+id/writing_image_button"
-                android:backgroundTint="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/writing_constraintLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:background="@drawable/icon_image" />
+                android:backgroundTint="@color/white"
+                android:padding="15dp">
 
-            <ImageButton
-                android:id="@+id/writing_location_button"
+                <ImageView
+                    android:id="@+id/writing_profile_imageView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_launcher_background"
+                    app:layout_constraintLeft_toLeftOf="@id/writing_constraintLayout"
+                    app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
+
+                <EditText
+                    android:id="@+id/writing_content_editView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/mainBlue"
+                    android:hint="@string/writing_comment"
+                    android:singleLine="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toRightOf="@id/writing_profile_imageView"
+                    app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
+
+                <FrameLayout
+                    android:id="@+id/writing_framelayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/writing_content_editView">
+
+                    <ImageView
+                        android:id="@+id/writing_image_imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center" />
+
+                    <TextView
+                        android:id="@+id/writing_images_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/writing_gray_textview"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/writing_image_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/icon_image"
+                    android:backgroundTint="@color/black" />
+
+                <ImageButton
+                    android:id="@+id/writing_location_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/icon_writing_location"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/writing_send_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/black"
-                android:background="@drawable/icon_writing_location" />
-
+                android:layout_gravity="right"
+                android:layout_margin="20dp"
+                android:background="@drawable/login_round_button"
+                android:text="@string/save" />
         </LinearLayout>
     </LinearLayout>
 </layout>
