@@ -1,9 +1,10 @@
 package com.example.daboyeo_android.entity.home
 
 data class ReportData(
-        val report_id: String,
+        val report_id: Int,
         val reporter_name: String,
         val reporter_profile_uri: String,
+        val reporter_id: String,
         val content: String,
         val tags: List<String>,
         val image_uris: List<String>,
