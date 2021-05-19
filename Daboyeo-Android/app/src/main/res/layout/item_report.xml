@@ -1,91 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#FFFFFF"
-    android:padding="15dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/post_profile_imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/post_name_textView"
-        android:layout_width="wrap_content"
+        <variable
+            name="reportItem"
+            type="com.example.daboyeo_android.entity.home.ReportData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="닉네임"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@id/post_profile_imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/post_date_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2020.03.17"
-        android:textSize="16sp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/post_location_imageView"
-        android:layout_width="12dp"
-        android:layout_height="17dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/icon_location"
-        app:layout_constraintLeft_toRightOf="@id/post_profile_imageView"
-        app:layout_constraintTop_toBottomOf="@id/post_name_textView" />
-
-    <TextView
-        android:id="@+id/post_location_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:background="#FFFFFF"
         android:layout_marginTop="5dp"
-        android:text="익산 모현동"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toRightOf="@id/post_location_imageView"
-        app:layout_constraintTop_toBottomOf="@id/post_name_textView" />
+        android:padding="15dp">
 
-    <TextView
-        android:id="@+id/post_content_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="2akdakfl.sjdkfmwdljaifdjflalsdkfjiwlk.amdsfja;lij23lkjlalkdjafiojwl3kj2k"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/reportItem_profile_imageView"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/test_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/post_image_viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/post_content_textView" />
+        <TextView
+            android:id="@+id/reportItem_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@{reportItem.reporter_name}"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@id/reportItem_profile_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/post_like_button"
-        android:layout_width="25dp"
-        android:layout_height="23dp"
-        android:background="@drawable/icon_like"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/post_image_viewPager" />
+        <TextView
+            android:id="@+id/reportItem_date_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{reportItem.created_at}"
+            android:textSize="13sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/post_comment_button"
-        android:layout_width="25dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/icon_comment"
-        app:layout_constraintLeft_toRightOf="@id/post_like_button"
-        app:layout_constraintTop_toBottomOf="@id/post_image_viewPager" />
+        <ImageView
+            android:id="@+id/reportItem_location_imageView"
+            android:layout_width="8dp"
+            android:layout_height="11dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/icon_location"
+            app:layout_constraintLeft_toRightOf="@id/reportItem_profile_imageView"
+            app:layout_constraintTop_toBottomOf="@id/reportItem_name_textView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/reportItem_location_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@{reportItem.location}"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@id/reportItem_location_imageView"
+            app:layout_constraintTop_toBottomOf="@id/reportItem_name_textView" />
+
+        <TextView
+            android:id="@+id/reportItem_content_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginRight="7dp"
+            android:text="@{reportItem.content}"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/reportItem_image_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/test_image"
+            app:layout_constraintTop_toBottomOf="@id/reportItem_content_textView" />
+
+        <ImageView
+            android:id="@+id/reportItem_like_button"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_like"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reportItem_image_viewPager" />
+
+        <ImageView
+            android:id="@+id/reportItem_comment_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_comment"
+            app:layout_constraintLeft_toRightOf="@id/reportItem_like_button"
+            app:layout_constraintTop_toBottomOf="@id/reportItem_image_viewPager" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
