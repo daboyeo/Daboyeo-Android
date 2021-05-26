@@ -27,15 +27,15 @@
                 android:layout_width="130dp"
                 android:scaleType="fitCenter"
                 android:layout_height="130dp"
-                android:layout_gravity="center"
-                android:background="@drawable/icon_google" />
+                android:layout_gravity="center" />
 
             <ImageButton
                 android:id="@+id/modify_userImg_imageButton"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/modify_gry" />
+                android:backgroundTint="@color/modify_gry"
+                android:src="@drawable/ic_launcher_foreground" />
         </FrameLayout>
 
         <TextView
