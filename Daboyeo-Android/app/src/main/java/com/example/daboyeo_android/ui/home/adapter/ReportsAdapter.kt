@@ -2,27 +2,36 @@ package com.example.daboyeo_android.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ItemReportBinding
 import com.example.daboyeo_android.entity.home.ReportData
 
-class ReportsAdapter(): RecyclerView.Adapter<ReportsViewHolder>() {
-    lateinit var reports : List<ReportData>
+class ReportsAdapter(private var reports: List<ReportData>) : RecyclerView.Adapter<ReportsViewHolder>() {
 
-    fun setList(list: List<ReportData>) {
-        if(::reports.isInitialized) return
-        reports = list
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportsViewHolder =
+            ReportsViewHolder(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.context),
+                            R.layout.item_report,
+                            parent,
+                            false
+                    )
+            )
+
+    override fun onBindViewHolder(holder: ReportsViewHolder, position: Int) {
+        val view = holder.itemView
+        val item: ReportData = reports[position]
+
+        holder.binding.reportItem = reports[position]
+
+        view.apply {
+            holder.clickSympathy(item.report_id ,item.is_sympathy)
+            holder.clickTag()
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportsViewHolder {
-        val binding = ItemReportBinding.inflate(LayoutInflater.from(parent.context),parent, false)
-        return ReportsViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: ReportsViewHolder, position: Int) = holder.bind(reports[position])
-
-    override fun getItemCount(): Int = reports.size
+    override fun getItemCount() = reports.size
 
 }
