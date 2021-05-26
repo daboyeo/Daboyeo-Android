@@ -28,7 +28,8 @@ class CommentAdapter(var comments: ArrayList<CommentData>): RecyclerView.Adapter
 
     fun addComment(commentData: CommentData) {
         comments.add(commentData)
-        commentData.notifyAll()
+        comments.notifyAll()
+
     }
 
     inner class CommentViewHolder(val binding: ItemCommentBinding): RecyclerView.ViewHolder(binding.root) {
