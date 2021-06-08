@@ -1,9 +1,8 @@
 package com.example.daboyeo_android.http.service
 
 import com.example.daboyeo_android.entity.home.DetailReportData
-import com.example.daboyeo_android.entity.home.ReportData
 import com.example.daboyeo_android.entity.home.ReportListData
-import com.google.gson.JsonObject
+import org.json.JSONArray
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -33,11 +32,17 @@ interface TimelineService {
 
     @POST("report")
     suspend fun writingReport(
-            @Header("Authorization") header: String,
-            @Body tags : HashMap<String, String>,
-            @Body image_uris : JsonObject,
-            @Body content: JsonObject,
-            @Body location: JsonObject
+        @Header("Authorization") header: String,
+        @Body tags: JSONArray,
+        @Body image_uris: JSONArray,
+        @Body hashMap: HashMap<String, String>
+    ): Response<String>
+
+    @POST("report")
+    suspend fun writing(
+        @Header("Authorization") header: String,
+        @Body tags : HashMap<String, String>,
+        @Body hashMap: HashMap<String, String>
     ): Response<String>
 
 }
