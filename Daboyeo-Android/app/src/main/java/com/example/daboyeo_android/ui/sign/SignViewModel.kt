@@ -1,20 +1,23 @@
-package com.example.daboyeo_android.ui.sign
+package com.example.daboyeo_android.ui.signp
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.daboyeo_android.entity.sign.GoogleTokenRequest
 import com.example.daboyeo_android.repository.SignRepository
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.launch
 import kotlin.collections.HashMap
 import com.example.daboyeo_android.http.interceptor.Result
+import com.example.daboyeo_android.util.DaboyeoApplication.Companion.pref
 
 class SignViewModel : ViewModel() {
     private val repository = SignRepository()
-    var signLiveData = MutableLiveData<Int>()
+    private var _statusLiveData = MutableLiveData<Int>()
+    val statusLiveData: LiveData<Int>  get() = _statusLiveData
 
-    fun login(accessToken: String) {
+    private fun login(accessToken: String) {
         var hashMap = HashMap<String, String>()
 
         hashMap["token"] = accessToken
@@ -23,17 +26,32 @@ class SignViewModel : ViewModel() {
         viewModelScope.launch {
             when (val result = repository.signAuth(hashMap)) {
                 is Result.Success -> {
-                    if (result.code == 200) {
-                        signLiveData.value = 1
-                        Log.d("SignViewModel", "token : " + result.data)
-                    }
+                    _statusLiveData.value = result.code
+                    saveToken(result.data)
                 }
                 is Result.Error -> {
-                    signLiveData.value = 0
                     Log.e("SignViewModel", result.exception)
                 }
             }
         }
+    }
+
+    fun getAccessToken(requestBody: GoogleTokenRequest) {
+        viewModelScope.launch {
+            when(val result = repository.googleAccessToken(requestBody)) {
+                is Result.Success -> {
+                    login(result.data.access_token)
+                }
+                is Result.Error -> {
+                    Log.e("SignViewModel", result.exception)
+                }
+            }
+        }
+
+    }
+
+    private fun saveToken(data: String) {
+        pref?.saveToken(true, data)
     }
 
 }
