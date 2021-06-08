@@ -9,7 +9,7 @@
     <string name="search">검색</string>
     <string name="writing">글쓰기</string>
     <string name="profile">프로필</string>
-    <string name="writing_comment">님, 어떤 사건 사고를 목격하셨나요?</string>
+    <string name="writing_comment">어떤 사건 사고를 목격하셨나요?</string>
     <string name="search_comment">찾고싶은 내용을 검색해보세요</string>
     <string name="noPost">게시물이 없습니다.</string>
     <string name="modify">수정하기</string>
@@ -25,5 +25,6 @@
     <string name="modify_report">글 수정</string>
     <string name="unknown_request">알 수 없는 요청입니다.</string>
     <string name="save">저장</string>
-    <string name="google_map_key">AIzaSyC6nqG-XHeTUrbCbKdgVncjjPFLHtSLMUE</string>
+    <string name="delete">삭제</string>
+    <string name="add_comment">댓글을 입력해주세요.</string>
 </resources>
