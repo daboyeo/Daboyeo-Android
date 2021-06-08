@@ -6,6 +6,10 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def googleMapApiKey = properties.getProperty('google_map_key')
+
 android {
     compileSdkVersion 30
 
@@ -23,6 +27,9 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [googleMapApiKey:googleMapApiKey]
+        buildConfigField "String", "CLIENT_SECRET", properties['client_secret']
     }
 
     buildTypes {
