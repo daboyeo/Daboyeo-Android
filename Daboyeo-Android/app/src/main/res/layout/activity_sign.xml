@@ -16,7 +16,8 @@
             android:layout_marginTop="180dp"
             android:text="@string/login_comment1"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +28,8 @@
             android:layout_marginLeft="50dp"
             android:text="@string/login_comment2"
             android:textColor="@color/mainBlue"
-            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textSize="40sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_comment_textView1" />
 
@@ -37,8 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:text="@string/login_comment3"
+            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="40sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_comment_textView2" />
 
