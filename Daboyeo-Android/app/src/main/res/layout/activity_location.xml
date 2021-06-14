@@ -5,7 +5,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.writing.LocationActivity">
+        tools:context=".presentation.view.post.LocationActivity">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/location_mapView_fragment"

@@ -7,20 +7,20 @@
 
         <variable
             name="viewModel"
-            type="com.example.daboyeo_android.ui.profile.ProfileViewModel" />
+            type="com.example.daboyeo_android.presentation.viewModel.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.profile.ProfileFragment">
+        tools:context=".presentation.view.profile.ProfileFragment">
 
         <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="wrap_content"
             android:id="@+id/profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
@@ -36,9 +36,8 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
-
                 android:layout_marginTop="30dp"
-                android:background="@drawable/test_image" />
+                app:circleImg="@{viewModel.profileData.profile_uri}" />
 
             <TextView
                 android:id="@+id/profile_name_textView"
@@ -57,8 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            tools:listitem="@layout/item_report"
-            app:layout_constraintTop_toBottomOf="@id/profile_linearLayout" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/profile_linearLayout"
+            tools:listitem="@layout/item_report" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

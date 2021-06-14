@@ -23,27 +23,18 @@
                 android:backgroundTint="@color/white"
                 android:padding="15dp">
 
-                <ImageView
-                    android:id="@+id/writing_profile_imageView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/ic_launcher_background"
-                    app:layout_constraintLeft_toLeftOf="@id/writing_constraintLayout"
-                    app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
-
                 <EditText
                     android:id="@+id/writing_content_editView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="45dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/mainBlue"
                     android:hint="@string/writing_comment"
                     android:singleLine="false"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toRightOf="@id/writing_profile_imageView"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@id/writing_constraintLayout" />
 
                 <FrameLayout
@@ -87,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/icon_image"
                     android:backgroundTint="@color/black" />
 

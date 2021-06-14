@@ -6,21 +6,20 @@
 
         <variable
             name="reportItem"
-            type="com.example.daboyeo_android.entity.home.ReportData" />
+            type="com.example.daboyeo_android.data.model.home.PostData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:layout_marginTop="5dp"
+        android:background="@drawable/item_report"
         android:padding="15dp">
 
         <ImageView
             android:id="@+id/reportItem_profile_imageView"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:background="@drawable/test_image"
+            app:circleImg="@{reportItem.reporter_profile_uri}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +46,9 @@
             android:id="@+id/reportItem_location_imageView"
             android:layout_width="8dp"
             android:layout_height="11dp"
+            android:visibility="gone"
             android:layout_marginLeft="10dp"
+            app:circleImg="@{reportItem.reporter_profile_uri}"
             android:layout_marginTop="8dp"
             android:background="@drawable/icon_location"
             app:layout_constraintLeft_toRightOf="@id/reportItem_profile_imageView"
@@ -71,18 +72,16 @@
             android:layout_marginLeft="7dp"
             android:layout_marginTop="55dp"
             android:layout_marginRight="7dp"
-            android:text="@{reportItem.content}"
             android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.viewpager2.widget.ViewPager2
+        <ImageView
             android:id="@+id/reportItem_image_viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:background="@drawable/test_image"
             app:layout_constraintTop_toBottomOf="@id/reportItem_content_textView" />
 
         <ImageView
