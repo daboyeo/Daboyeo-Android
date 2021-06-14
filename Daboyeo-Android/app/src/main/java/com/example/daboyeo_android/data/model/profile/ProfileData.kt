@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.entity.profile
+package com.example.daboyeo_android.data.model.profile
 
 data class ProfileData(
         val name: String,

@@ -1,6 +1,6 @@
-package com.example.daboyeo_android.entity.home
+package com.example.daboyeo_android.data.model.home
 
-data class ReportData(
+data class PostData(
         val report_id: Int,
         val reporter_name: String,
         val reporter_profile_uri: String,

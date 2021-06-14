@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.entity.home
+package com.example.daboyeo_android.data.model.home
 
 data class FileResponse (
     val name: String,

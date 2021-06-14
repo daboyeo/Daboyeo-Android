@@ -1,7 +1,7 @@
-package com.example.daboyeo_android.http.service
+package com.example.daboyeo_android.data.api.service
 
-import com.example.daboyeo_android.entity.sign.GoogleTokenRequest
-import com.example.daboyeo_android.entity.sign.GoogleTokenResponse
+import com.example.daboyeo_android.data.model.sign.GoogleTokenRequest
+import com.example.daboyeo_android.data.model.sign.GoogleTokenResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

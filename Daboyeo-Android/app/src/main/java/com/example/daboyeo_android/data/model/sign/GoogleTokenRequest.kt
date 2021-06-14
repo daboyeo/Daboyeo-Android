@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.entity.sign
+package com.example.daboyeo_android.data.model.sign
 
 data class GoogleTokenRequest (
         val grant_type : String,

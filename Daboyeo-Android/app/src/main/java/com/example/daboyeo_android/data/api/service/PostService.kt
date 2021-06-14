@@ -1,9 +1,12 @@
-package com.example.daboyeo_android.http.service
+package com.example.daboyeo_android.data.api.service
 
+import com.example.daboyeo_android.data.model.home.DetailPostData
+import com.google.gson.JsonObject
+import org.json.JSONArray
 import retrofit2.Response
 import retrofit2.http.*
 
-interface ReportService {
+interface PostService {
     @POST("comment")
     suspend fun addComment(
         @Header("Authorization") header: String,
@@ -11,21 +14,15 @@ interface ReportService {
     ): Response<Unit>
 
     @PUT("sympathy")
-    suspend fun sympathy(
+    suspend fun like(
         @Header("Authorization") header: String,
-        @Body report_id: String
+        @Body report_id: HashMap<String, Int>
     ): Response<Boolean>
 
-    @PUT("report")
-    suspend fun modifyReport (
-        @Header("Authorization") header: String,
-        @Body body: HashMap<String, String>
-    ): Response<Unit>
-
     @DELETE("report")
-    suspend fun deleteReport (
+    suspend fun deletePost (
         @Header("Authorization") header: String,
-        @Body body: HashMap<String, String>
+        @Body report_id: JsonObject
     ): Response<Unit>
 
     @DELETE("comment")
@@ -33,4 +30,10 @@ interface ReportService {
         @Header ("Authorization") header: String,
         @Body body: HashMap<String, String>
     ) : Response<Unit>
+
+    @GET("report/{id}")
+    suspend fun getDetailPost(
+            @Header("Authorization") header: String,
+            @Path("id") id: Int
+    ): Response<DetailPostData>
 }
