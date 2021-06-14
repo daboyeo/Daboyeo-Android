@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.util
+package com.example.daboyeo_android.presentation.util
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -1,10 +1,8 @@
-package com.example.daboyeo_android.util
+package com.example.daboyeo_android.presentation.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-
 
 object BindingAdapter {
 

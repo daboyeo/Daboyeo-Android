@@ -1,4 +1,4 @@
-package com.example.daboyeo_android.ui.home.adapter
+package com.example.daboyeo_android.presentation.view.home.adapter
 
 import android.view.View
 

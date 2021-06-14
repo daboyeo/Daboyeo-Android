@@ -1,10 +1,8 @@
-package com.example.daboyeo_android.ui.home
+package com.example.daboyeo_android.presentation.view.home
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -12,9 +10,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.daboyeo_android.R
 import com.example.daboyeo_android.databinding.ActivityHomeBinding
-import com.example.daboyeo_android.ui.profile.ProfileFragment
-import com.example.daboyeo_android.ui.search.SearchFragment
-import com.example.daboyeo_android.ui.writing.WritingFragment
+import com.example.daboyeo_android.presentation.view.profile.ProfileFragment
+import com.example.daboyeo_android.presentation.view.post.DetailPostFragment
+import com.example.daboyeo_android.presentation.view.search.SearchFragment
+import com.example.daboyeo_android.presentation.view.post.WritingFragment
 
 private const val REQUEST_PERMISSIONS = 100
 
@@ -34,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
         bottomNavigationItemClick()
-        replaceFragment(SearchFragment())
+        replaceFragment(HomeFragment())
         checkPermissions()
     }
 
@@ -91,4 +90,15 @@ class HomeActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.home_fragment, fragment)
         fragmentTransaction.commit()
     }
+
+    fun replaceFragment(fragment: Fragment, reportId: Int) {
+        var bundle = Bundle()
+        bundle.putInt("reportId", reportId)
+        val fragment = DetailPostFragment()
+        fragment.arguments = bundle
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.home_fragment, fragment)
+        fragmentTransaction.commit()
+    }
+
 }

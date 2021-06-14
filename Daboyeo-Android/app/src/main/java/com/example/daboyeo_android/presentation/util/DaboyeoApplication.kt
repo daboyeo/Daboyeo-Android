@@ -1,7 +1,9 @@
-package com.example.daboyeo_android.util
+package com.example.daboyeo_android.presentation.util
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class DaboyeoApplication: Application() {
     companion object {
         var pref: SharedPreferencesManager? =null

@@ -1,7 +1,7 @@
-package com.example.daboyeo_android.http.interceptor
+package com.example.daboyeo_android.data.api.interceptor
 
-import com.example.daboyeo_android.http.service.DaboyeoService
-import com.example.daboyeo_android.http.service.FileService
+import com.example.daboyeo_android.data.api.service.DaboyeoService
+import com.example.daboyeo_android.data.api.service.FileService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

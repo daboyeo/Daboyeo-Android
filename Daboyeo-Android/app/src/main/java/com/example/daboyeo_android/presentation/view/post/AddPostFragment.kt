@@ -1,36 +1,44 @@
-package com.example.daboyeo_android.ui.writing
+package com.example.daboyeo_android.presentation.view.post
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.database.Cursor
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.daboyeo_android.R
-import com.example.daboyeo_android.databinding.FragmentWritingBinding
-import com.example.daboyeo_android.ui.home.HomeActivity
-import java.lang.Exception
+import com.example.daboyeo_android.databinding.FragmentAddPostBinding
+import com.example.daboyeo_android.presentation.viewModel.AddPostViewModel
+import com.example.daboyeo_android.presentation.viewModel.AddPostViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 private const val REQUEST_LOCATION = 200
 private const val REQUEST_OPEN_GALLERY = 300
 
+@AndroidEntryPoint
 class WritingFragment : Fragment() {
-    private lateinit var binding: FragmentWritingBinding
+    private lateinit var binding: FragmentAddPostBinding
     private lateinit var location: String
-    private var viewModel = WritingViewModel()
+
+    @Inject
+    lateinit var factory: AddPostViewModelFactory
+    lateinit var viewModel: AddPostViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_writing, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_post, container, false)
+
+        viewModel = ViewModelProvider(this, factory).get(AddPostViewModel::class.java)
 
         return binding.root
     }
@@ -45,19 +53,21 @@ class WritingFragment : Fragment() {
 
         binding.writingImageButton.setOnClickListener {
             val intent = Intent()
-            //intent.type = "image/*"
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(
-                Intent.createChooser(intent, "사진 최대 10장 선택가능"),
-                REQUEST_OPEN_GALLERY
+                    Intent.createChooser(intent, "사진 최대 10장 선택가능"),
+                    REQUEST_OPEN_GALLERY
             )
         }
 
         binding.writingSendButton.setOnClickListener {
-            viewModel.writingReport(binding.writingContentEditView.text.toString(), location)
+            var contentResolver = requireContext().contentResolver
+            location = "36.3908418290076, 127.36547532668905"
+            viewModel.addPost(binding.writingContentEditView.text.toString(), location, contentResolver)
         }
+
     }
 
     override fun startActivityForResult(data: Intent?, requestCode: Int) {
@@ -67,7 +77,6 @@ class WritingFragment : Fragment() {
 
         }
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -86,6 +95,7 @@ class WritingFragment : Fragment() {
                 for (i in 0 until count) {
                     val imageUri = data.clipData!!.getItemAt(i).uri
                     viewModel.imageUriList.add(imageUri)
+                    Log.e("WritingFragment", imageUri.toString())
                 }
                 binding.writingImageImageView.setImageURI(data.clipData!!.getItemAt(0).uri)
 
@@ -94,6 +104,7 @@ class WritingFragment : Fragment() {
                         it.visibility = View.VISIBLE
                         it.text = "외 " + (count - 1) + "장"
                     }
+
                 } else {
                     binding.writingImagesTextView.visibility = View.GONE
                 }
@@ -107,4 +118,5 @@ class WritingFragment : Fragment() {
             }
         }
     }
+
 }
